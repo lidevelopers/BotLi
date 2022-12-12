@@ -31,14 +31,14 @@ engine:                                   # Engine settings.
       Threads: 4                          # Max CPU threads the engine can use.
       Hash: 256                           # Max memory (in megabytes) the engine can allocate.
   opening_books:
-    enabled: false                        # Activate opening books.
+    enabled: true                        # Activate opening books.
     books:
 #     white:                              # List of names of books to use as white.
 #       - "WhiteBook"
 #     black:                              # List of names of books to use as black.
 #       - "BlackBook"
       standard:                           # List of names of books to use if there is no specific book for white, black or chess960.
-        - "DefaultBook" 
+        - "Perfect2021" 
 #     chess960:                           # List of names of books to use for chess960.
 #       - "Chess960Book"
 #     Use the same pattern for 'antichess', 'atomic', 'crazyhouse', 'horde', 'kingofthehill', 'racingkings' and '3check' as well.
@@ -82,7 +82,7 @@ engine:                                   # Engine settings.
     score: -1000                          # If the score is less than or equal to this value, the bot resigns (in cp).
     consecutive_moves: 5                  # How many moves in a row the score has to be below the resign value.
 
-move_overhead_multiplier: 1.0             # Increase if your bot flags games too often. Default move overhead is 1 second per 1 minute initital time.
+move_overhead_multiplier: 3.5             # Increase if your bot flags games too often. Default move overhead is 1 second per 1 minute initital time.
     
 challenge:                                # Incoming challenges. (Commenting allowed)
   concurrency: 1                          # Number of games to play simultaneously.
@@ -93,7 +93,7 @@ challenge:                                # Incoming challenges. (Commenting all
 # max_initial: 315360000                  # Maximum amount of initial time to accept a challenge.
   variants:                               # Chess variants to accept (https://lichess.org/variant).
     - standard
-    - chess960
+#   - chess960
 #   - fromPosition
 #   - antichess
 #   - atomic
@@ -108,15 +108,15 @@ challenge:                                # Incoming challenges. (Commenting all
     - rapid
 #   - classical
   bot_modes:                              # Game modes to accept against BOTs.
-#   - casual                              # Unrated games.
+    - casual                              # Unrated games.
     - rated                               # Rated games
   human_modes:                            # Game modes to accept against humans.
     - casual                              # Unrated games.
     - rated                               # Rated games
 
 matchmaking:
-  initial_time: 60                        # Initial time for matchmaking mode.
-  increment: 1                            # Increment time for matchmaking mode.
+  initial_time: 30                        # Initial time for matchmaking mode.
+  increment: 0                            # Increment time for matchmaking mode.
   rated: true                             # Activate rated games in matchmaking mode.
   timeout: 60                             # Time until a challenge is canceled.
   variants:                               # Chess variants (https://lichess.org/variant) to challenge.
@@ -134,4 +134,4 @@ matchmaking:
   delay: 10                               # Time in seconds the bot must be idle before a new challenge is started.
 
 books:                                    # Names of the opening books (to be used above in the opening_books section) and paths to the opening books.
-  DefaultBook: "/path/to/DefaultBook.bin"
+  DefaultBook: "/app/engines/Perfect2021.bin"
