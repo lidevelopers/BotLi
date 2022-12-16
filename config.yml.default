@@ -17,7 +17,7 @@ engine:                                   # Engine settings.
       - "/path/to/gaviota"
     max_pieces: 5                         # Count of max pieces in the local gaviota endgame tablebases.
   uci_options:                            # Arbitrary UCI options passed to the engine. (Commenting allowed)
-    Move Overhead: 100                    # Increase if your bot flags games too often.
+    Move Overhead: 500                    # Increase if your bot flags games too often.
     Threads: 4                            # Max CPU threads the engine can use.
     Hash: 256                             # Max memory (in megabytes) the engine can allocate.
     #Use NNUE: true           # allow bot to use neural networks
@@ -33,7 +33,7 @@ engine:                                   # Engine settings.
       Threads: 4                          # Max CPU threads the engine can use.
       Hash: 256                           # Max memory (in megabytes) the engine can allocate.
   opening_books:
-    enabled: false                        # Activate opening books.
+    enabled: true                        # Activate opening books.
     books:
 #     white:                              # List of names of books to use as white.
 #       - "WhiteBook"
