@@ -17,11 +17,9 @@ engine:                                   # Engine settings.
       - "/path/to/gaviota"
     max_pieces: 5                         # Count of max pieces in the local gaviota endgame tablebases.
   uci_options:                            # Arbitrary UCI options passed to the engine. (Commenting allowed)
-    Move Overhead: 500                    # Increase if your bot flags games too often.
+    Move Overhead: 100                    # Increase if your bot flags games too often.
     Threads: 4                            # Max CPU threads the engine can use.
     Hash: 256                             # Max memory (in megabytes) the engine can allocate.
-    #Use NNUE: true           # allow bot to use neural networks
-    #EvalFile: nn-29ca55b36ddc.nnue     # shogi neural networks file
   variants:
     enabled: false                        # Activate seperate engine for other chess variants than standard and chess960.
     dir: "./engines"                      # Directory containing the engine.
@@ -44,20 +42,20 @@ engine:                                   # Engine settings.
 #     chess960:                           # List of names of books to use for chess960.
 #       - "Chess960Book"
 #     Use the same pattern for 'antichess', 'atomic', 'crazyhouse', 'horde', 'kingofthehill', 'racingkings' and '3check' as well.
-    selection: "best_move"          # Move selection is one of "weighted_random", "uniform_random" or "best_move".
+    selection: "weighted_random"          # Move selection is one of "weighted_random", "uniform_random" or "best_move".
 #   max_depth: 16                         # Half move max depth. (Comment this line for max depth)
   online_moves:
     opening_explorer:
-      enabled: true                       # Activate online moves from Lichess opening explorer. The move that has performed best for this bot is played.
+      enabled: false                      # Activate online moves from Lichess opening explorer. The move that has performed best for this bot is played.
       use_for_variants: false             # Whether the Lichess opening explorer should be used for other variants than standard and chess960.
       min_time: 20                        # Time the bot must have at least to use the online move.
       timeout: 5                          # Time the server has to respond.
       min_games: 5                        # Minimum number of games in which the position must have occurred.
-      only_with_wins: true               # Whether to play only moves that have won before.
-      selection: "win_rate"            # Move selection is "performance" or "win_rate".
+      only_with_wins: false               # Whether to play only moves that have won before.
+      selection: "performance"            # Move selection is "performance" or "win_rate".
 #     max_depth: 16                       # Half move max depth. (Comment this line for max depth)
     chessdb:
-      enabled: true                      # Activate online moves from https://chessdb.cn/queryc_en/
+      enabled: false                      # Activate online moves from https://chessdb.cn/queryc_en/
       min_eval_depth: 10                  # Minimum evaluation depth. Only for selection: "best".
       min_time: 20                        # Time the bot must have at least to use the online move.
       timeout: 5                          # Time the server has to respond.
@@ -71,7 +69,7 @@ engine:                                   # Engine settings.
       timeout: 5                          # Time the server has to respond.
 #     max_depth: 16                       # Half move max depth. (Comment this line for max depth)
     online_egtb:
-      enabled: true                      # Activate online endgame tablebases from Lichess.
+      enabled: false                      # Activate online endgame tablebases from Lichess.
       min_time: 10                        # Time the bot must have at least to use the online move.
       timeout: 3                          # Time the server has to respond.
   offer_draw:
@@ -88,7 +86,7 @@ move_overhead_multiplier: 1.0             # Increase if your bot flags games too
     
 challenge:                                # Incoming challenges. (Commenting allowed)
   concurrency: 1                          # Number of games to play simultaneously.
-  bullet_with_increment_only: true       # Whether bullet games against BOTs should only be accepted with increment.
+  bullet_with_increment_only: false       # Whether bullet games against BOTs should only be accepted with increment.
 # min_increment: 0                        # Minimum amount of increment to accept a challenge.
 # max_increment: 180                      # Maximum amount of increment to accept a challenge.
 # min_initial: 0                          # Minimum amount of initial time to accept a challenge.
@@ -114,7 +112,7 @@ challenge:                                # Incoming challenges. (Commenting all
     - rated                               # Rated games
   human_modes:                            # Game modes to accept against humans.
     - casual                              # Unrated games.
-#    - rated                               # Rated games
+    - rated                               # Rated games
 
 matchmaking:
   initial_time: 60                        # Initial time for matchmaking mode.
