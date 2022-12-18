@@ -82,7 +82,7 @@ engine:                                   # Engine settings.
     score: -1000                          # If the score is less than or equal to this value, the bot resigns (in cp).
     consecutive_moves: 5                  # How many moves in a row the score has to be below the resign value.
 
-move_overhead_multiplier: 0.1             # Increase if your bot flags games too often. Default move overhead is 1 second per 1 minute initital time.
+move_overhead_multiplier: 1.0             # Increase if your bot flags games too often. Default move overhead is 1 second per 1 minute initital time.
     
 challenge:                                # Incoming challenges. (Commenting allowed)
   concurrency: 1                          # Number of games to play simultaneously.
