@@ -2,6 +2,7 @@ FROM ubuntu:jammy
 COPY . .
 
 RUN apt-get update && apt-get upgrade -y && apt-get install -y wget unzip python3 python3-pip
+RUN apt update > aptud.log && apt install -y wget python3 python3-pip p7zip-full > apti.log
 
 RUN mv config.yml.default config.yml
 RUN wget https://abrok.eu/stockfish/latest/linux/stockfish_x64_bmi2.zip -O stockfish.zip
