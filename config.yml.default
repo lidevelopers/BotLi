@@ -48,16 +48,16 @@ engine:                                   # Engine settings.
 #   max_depth: 16                         # Half move max depth. (Comment this line for max depth)
   online_moves:
     opening_explorer:
-      enabled: false                      # Activate online moves from Lichess opening explorer. The move that has performed best for this bot is played.
+      enabled: true                       # Activate online moves from Lichess opening explorer. The move that has performed best for this bot is played.
       use_for_variants: false             # Whether the Lichess opening explorer should be used for other variants than standard and chess960.
       min_time: 20                        # Time the bot must have at least to use the online move.
       timeout: 5                          # Time the server has to respond.
       min_games: 5                        # Minimum number of games in which the position must have occurred.
-      only_with_wins: false               # Whether to play only moves that have won before.
-      selection: "performance"            # Move selection is "performance" or "win_rate".
+      only_with_wins: true               # Whether to play only moves that have won before.
+      selection: "win_rate"            # Move selection is "performance" or "win_rate".
 #     max_depth: 16                       # Half move max depth. (Comment this line for max depth)
     chessdb:
-      enabled: false                      # Activate online moves from https://chessdb.cn/queryc_en/
+      enabled: true                      # Activate online moves from https://chessdb.cn/queryc_en/
       min_eval_depth: 10                  # Minimum evaluation depth. Only for selection: "best".
       min_time: 20                        # Time the bot must have at least to use the online move.
       timeout: 5                          # Time the server has to respond.
@@ -71,7 +71,7 @@ engine:                                   # Engine settings.
       timeout: 5                          # Time the server has to respond.
 #     max_depth: 16                       # Half move max depth. (Comment this line for max depth)
     online_egtb:
-      enabled: false                      # Activate online endgame tablebases from Lichess.
+      enabled: true                      # Activate online endgame tablebases from Lichess.
       min_time: 10                        # Time the bot must have at least to use the online move.
       timeout: 3                          # Time the server has to respond.
   offer_draw:
