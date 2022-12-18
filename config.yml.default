@@ -27,22 +27,22 @@ engine:                                   # Engine settings.
     ponder: true                          # Think on opponent's time.
     silence_stderr: false                 # Suppresses stderr output.
     uci_options:                          # Arbitrary UCI options passed to the engine. (Commenting allowed)
-      Move Overhead: 100                  # Increase if your bot flags games too often.
+      Move Overhead: 500                  # Increase if your bot flags games too often.
       Threads: 4                          # Max CPU threads the engine can use.
       Hash: 256                           # Max memory (in megabytes) the engine can allocate.
   opening_books:
     enabled: true                        # Activate opening books.
     books:
-#     white:                              # List of names of books to use as white.
-#       - "WhiteBook"
-#     black:                              # List of names of books to use as black.
-#       - "BlackBook"
+      white:                              # List of names of books to use as white.
+        - "Perfect2021"
+      black:                              # List of names of books to use as black.
+        - "Cerebellum3Merge"
       standard:                           # List of names of books to use if there is no specific book for white, black or chess960.
-        - "Perfect2021" 
+        - "Cerebellum3Merge"
 #     chess960:                           # List of names of books to use for chess960.
 #       - "Chess960Book"
 #     Use the same pattern for 'antichess', 'atomic', 'crazyhouse', 'horde', 'kingofthehill', 'racingkings' and '3check' as well.
-    selection: "weighted_random"          # Move selection is one of "weighted_random", "uniform_random" or "best_move".
+    selection: "best_move"          # Move selection is one of "weighted_random", "uniform_random" or "best_move".
 #   max_depth: 16                         # Half move max depth. (Comment this line for max depth)
   online_moves:
     opening_explorer:
@@ -82,7 +82,7 @@ engine:                                   # Engine settings.
     score: -1000                          # If the score is less than or equal to this value, the bot resigns (in cp).
     consecutive_moves: 5                  # How many moves in a row the score has to be below the resign value.
 
-move_overhead_multiplier: 1.0             # Increase if your bot flags games too often. Default move overhead is 1 second per 1 minute initital time.
+move_overhead_multiplier: 0.1             # Increase if your bot flags games too often. Default move overhead is 1 second per 1 minute initital time.
     
 challenge:                                # Incoming challenges. (Commenting allowed)
   concurrency: 1                          # Number of games to play simultaneously.
@@ -117,7 +117,7 @@ challenge:                                # Incoming challenges. (Commenting all
 matchmaking:
   initial_time: 60                        # Initial time for matchmaking mode.
   increment: 0                            # Increment time for matchmaking mode.
-  rated: true                             # Activate rated games in matchmaking mode.
+  rated: casual                             # Activate rated games in matchmaking mode.
   timeout: 10                             # Time until a challenge is canceled.
   variants:                               # Chess variants (https://lichess.org/variant) to challenge.
     - standard
@@ -135,3 +135,4 @@ matchmaking:
 
 books:                                    # Names of the opening books (to be used above in the opening_books section) and paths to the opening books.
   Perfect2021: "/engines/Perfect2021.bin"
+  Cerebellum3Merge: "/Cerebellum3Merge.bin"
